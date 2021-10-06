@@ -21,6 +21,18 @@ public class MainActivity extends AppCompatActivity {
         startButton = findViewById(R.id.startButton);
     }
 
+    class ExampleRunnable implements Runnable {
+        @Override
+        public void run() {
+            mockFileDownloader();
+        }
+    }
+
+    public void startDownload(View view) {
+        ExampleRunnable runnable = new ExampleRunnable();
+        new Thread(runnable).start();
+    }
+
     public void mockFileDownloader() {
         runOnUiThread(new Runnable() {
             @Override
@@ -29,11 +41,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        for(int i = 0; i <= 100; i = i * 10){
+        for (int i = 0; i <= 100; i = i + 10) {
             Log.d(TAG, "Download Progress: " + i + "%");
             try {
                 Thread.sleep(1000);
-            } catch(InterruptedException e){
+            } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
