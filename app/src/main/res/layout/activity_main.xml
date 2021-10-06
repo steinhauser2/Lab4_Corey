@@ -11,8 +11,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="302dp"
-        android:text="Start"
         android:onClick="startDownload"
+        android:text="Start"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -23,8 +23,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="39dp"
         android:layout_marginEnd="1dp"
-        android:text="Stop"
         android:onClick="stopDownload"
+        android:text="Stop"
         app:layout_constraintEnd_toEndOf="@+id/startButton"
         app:layout_constraintTop_toBottomOf="@+id/startButton" />
 
@@ -37,5 +37,16 @@
         android:text="Switch"
         app:layout_constraintStart_toStartOf="@+id/stopButton"
         app:layout_constraintTop_toBottomOf="@+id/stopButton" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="47dp"
+        android:text=" "
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/startButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

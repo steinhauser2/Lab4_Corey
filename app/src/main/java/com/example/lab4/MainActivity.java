@@ -6,12 +6,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
     private Button startButton;
     private volatile boolean stopThread = false;
+    TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         startButton = findViewById(R.id.startButton);
+        textView = findViewById(R.id.textView);
     }
 
     class ExampleRunnable implements Runnable {
@@ -58,6 +61,13 @@ public class MainActivity extends AppCompatActivity {
             }
 
             Log.d(TAG, "Download Progress: " + i + "%");
+            int finalI = i;
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    textView.setText("Download Progress: " + finalI + "%");
+                }
+            });
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
@@ -69,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 startButton.setText("Start");
+                textView.setText(" ");
             }
         });
     }
