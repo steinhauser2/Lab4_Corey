@@ -18,12 +18,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/stopButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="39dp"
         android:layout_marginEnd="1dp"
         android:text="Stop"
+        android:onClick="stopDownload"
         app:layout_constraintEnd_toEndOf="@+id/startButton"
         app:layout_constraintTop_toBottomOf="@+id/startButton" />
 
@@ -34,6 +35,7 @@
         android:layout_marginTop="77dp"
         android:minHeight="48dp"
         android:text="Switch"
-        app:layout_constraintStart_toStartOf="@+id/button2"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        app:layout_constraintStart_toStartOf="@+id/stopButton"
+        app:layout_constraintTop_toBottomOf="@+id/stopButton" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
